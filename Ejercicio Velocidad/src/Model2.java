@@ -40,16 +40,29 @@ public class Model2 {
         return aux;//devuelve el valor , null si no existe un coche con esa matrícula o "e"( el propio objeto coche)
     }
 
-
+    /**
+     * A través de la matrícula introducida busca según esta en el arrayList el coche que tenga la misma matrícula  y si este existe aplica a la propiedad
+     * velocidad del coche (proveniente de la clase coche) al coche seleccionado del arrayList.
+     * En caso de que no exista el coche la velocidad la mantiene en 0
+     * @param matricula verificar la existencia de un coche en el arrayList
+     * @param incremento cantidad de velocidad a aumentar en el coche
+     * @return velocidad del coche
+     */
     public int aumentarVelocidad(String matricula, int incremento) {
-        Coche2 coche = getCoche(matricula);
-        if (coche != null) {
+        Coche2 coche = getCoche(matricula); //busca el coche en el arrayList según la matrícula
+        if (coche != null) {//si existe
             coche.velocidad += incremento; // Incrementa la velocidad
         }
+        //si no existe
         return coche != null ? coche.velocidad : 0; // Retorna la nueva velocidad o 0 si no se encuentra el coche
     }
 
-
+    /**
+     * De igual manera que el metodo aumentarVelocidad, pero en vez de aumentar la velocidad la reduce
+     * @param matricula  verificar la existencia de un coche en el arrayList
+     * @param decremento cantidad de velocidad a disminuir en el coche
+     * @return velocidad del coche
+     */
     public int reducirVelocidad(String matricula, int decremento) {
         Coche2 coche = getCoche(matricula);
         if (coche != null) {
@@ -61,6 +74,12 @@ public class Model2 {
         return coche != null ? coche.velocidad : 0; // Retorna la nueva velocidad o 0 si no se encuentra el coche
     }
 
+    /**
+     * Busca un coche en el arrayList a través de su matricula y guarda su valor de velocidad
+     * @param matricula verifica el coche que deseamos seleccionar
+     * @param v velocidad
+     * @return velocidad
+     */
     public int cambiarVelocidad(String matricula, Integer v) {
         // busca el coche
         getCoche(matricula).velocidad = v;
