@@ -10,5 +10,17 @@ public class Controller {
 
         miModel.aumentarVelocidad("111",4);
         miModel.reducirVelocidad("222", 6);
+
+        miModel.aumentarVelocidad("333",100);
+        miModel.reducirVelocidad("333",100);
+
+        int recoger = miModel.getVelocidad("333");
+        if(recoger == 1){
+            System.out.println("No existe");
+        }else{
+            System.out.println("Existe");
+        }
+
+
     }
 }

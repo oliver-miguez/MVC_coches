@@ -54,7 +54,7 @@ public class Model2 {
             coche.velocidad += incremento; // Incrementa la velocidad
         }
         //si no existe
-        return coche != null ? coche.velocidad : 0; // Retorna la nueva velocidad o 0 si no se encuentra el coche
+        return coche != null ? coche.velocidad : -1; // Retorna la nueva velocidad o 0 si no se encuentra el coche
     }
 
     /**
@@ -71,7 +71,7 @@ public class Model2 {
                 coche.velocidad = 0; // Evita velocidades negativas
             }
         }
-        return coche != null ? coche.velocidad : 0; // Retorna la nueva velocidad o 0 si no se encuentra el coche
+        return coche != null ? coche.velocidad : -1; // Retorna la nueva velocidad o 0 si no se encuentra el coche
     }
 
     /**
