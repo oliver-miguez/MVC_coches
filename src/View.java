@@ -3,12 +3,23 @@
  */
 public class View {
     /**
+     * Menu inicial
+     */
+    public static void menu() {
+        System.out.println("1.crear coche");
+        System.out.println("Cambiar velocidad");
+        System.out.println("3.Mostrar velocidad");
+        System.out.println("4.Salir");
+    }
+
+
+    /**
      * Muestra la velocidad de un coche
      * @param matricula del coche
      * @param v velocidad
      * @return true si se ha mostrado correctamente
      */
-    public boolean muestraVelocidad(String matricula, Integer v){
+    public static boolean muestraVelocidad(String matricula, Integer v){
         System.out.println(matricula + ": " + v + "km/hr");
         return true;
     }
