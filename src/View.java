@@ -9,7 +9,7 @@ public class View {
      */
     public static void menu() {
         System.out.println("1.crear coche");
-        System.out.println("Cambiar velocidad");
+        System.out.println("2.Cambiar velocidad");
         System.out.println("3.Mostrar velocidad");
         System.out.println("4.Salir");
 
