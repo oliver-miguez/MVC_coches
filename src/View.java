@@ -14,7 +14,7 @@ public class View {
             // Mostrar menú
             System.out.println("\nMenú:");
             System.out.println("1. Ingresar datos del coche");
-            System.out.println("2. Otra opción");
+            System.out.println("2. Cambiar velocidad");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
 
@@ -24,7 +24,7 @@ public class View {
             if (op == 1) {
                 System.out.println("Los datos del coche son los siguientes: " + Controller.crearCoche(obtenerModelo(), obtenerMatricula()));
             } else if (op == 2) {
-                System.out.println("Algo...");
+                System.out.println("La nueva velocidad es: "+ Controller.cambiarVelocidad(obtenerMatricula(),obtenerVelocidad()));
             } else if (op == 0) {
                 System.out.println("Cerrando el programa...");
             } else {
@@ -37,7 +37,7 @@ public class View {
     }
 
     /**
-     * Pregunta y almacena la matricula introducida
+     * Pregunta y almacena la matrícula introducida
      * @return valor de la matricula
      */
     public static String obtenerMatricula(){
@@ -58,6 +58,18 @@ public class View {
         String modelo = sc.next();
 
         return modelo;
+    }
+
+    /**
+     * Pregunta y almacena el modelo introducido
+     * @return valor  de la velocidad
+     */
+    public static int obtenerVelocidad(){
+        Scanner sc =  new Scanner(System.in);
+        System.out.println("Cual es su velocidad: ");
+        int velocidad = sc.nextInt();
+
+        return velocidad;
     }
 
 

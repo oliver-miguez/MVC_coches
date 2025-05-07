@@ -11,4 +11,16 @@ public class Controller {
         return coche.matricula;
 
     }
+
+    /**
+     * Cambiar velocidad
+     * @param matricula
+     * @param velocidad
+     * @return
+     */
+    public static int cambiarVelocidad(String matricula, int velocidad){
+        int cocheVel = Model.cambiarVelocidad(matricula,velocidad);
+        return cocheVel;
+    }
+
 }
