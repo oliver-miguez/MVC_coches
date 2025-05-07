@@ -52,7 +52,7 @@ public class Model {
 
 
     /**
-     * Ddevuelve la velocidad segun la matricula
+     * Ddevuelve la velocidad según la matrícula
      * @param matricula
      * @return
      */
