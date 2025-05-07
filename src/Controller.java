@@ -14,9 +14,9 @@ public class Controller {
 
     /**
      * Cambiar velocidad
-     * @param matricula
-     * @param velocidad
-     * @return
+     * @param matricula del coche creado
+     * @param velocidad del coche creado
+     * @return el valor de la velocidad que introducimos
      */
     public static int cambiarVelocidad(String matricula, int velocidad){
         int cocheVel = Model.cambiarVelocidad(matricula,velocidad);
