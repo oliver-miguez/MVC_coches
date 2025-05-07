@@ -8,31 +8,57 @@ public class View {
      * Menu inicial que dependiendo de la opción acceda a mecanicas del Controller
      */
     public static void menu() {
-        System.out.println("1.crear coche");
-        System.out.println("2.Cambiar velocidad");
-        System.out.println("3.Mostrar velocidad");
-        System.out.println("4.Salir");
-
         Scanner sc = new Scanner(System.in);
-        System.out.println("Elige opcion");
-        int op = sc.nextInt();
+        int op;
+        do {
+            // Mostrar menú
+            System.out.println("\nMenú:");
+            System.out.println("1. Ingresar datos del coche");
+            System.out.println("2. Otra opción");
+            System.out.println("0. Salir");
+            System.out.print("Seleccione una opción: ");
 
-        if(op == 1 ){
-            Controller.inicio(); //activa el metodo inicio del controller
-        } else if (op == 0) {
-            System.out.println("Cerrando");
-        }
+            op = sc.nextInt(); // Leer opción
+
+            // Procesar opción
+            if (op == 1) {
+                System.out.println("Los datos del coche son los siguientes: " + Controller.crearCoche(obtenerModelo(), obtenerMatricula()));
+            } else if (op == 2) {
+                System.out.println("Algo...");
+            } else if (op == 0) {
+                System.out.println("Cerrando el programa...");
+            } else {
+                System.out.println("Opción no válida, intente de nuevo.");
+            }
+
+        } while (op != 0); // Continuar mientras el usuario no elija salir
+
+        sc.close(); // Cerrar el scanner al final del programa
     }
-
 
     /**
-     * Muestra la velocidad de un coche
-     * @param matricula del coche
-     * @param v velocidad
-     * @return true si se ha mostrado correctamente
+     * Pregunta y almacena la matricula introducida
+     * @return valor de la matricula
      */
-    public static boolean muestraVelocidad(String matricula, Integer v){
-        System.out.println(matricula + ": " + v + "km/hr");
-        return true;
+    public static String obtenerMatricula(){
+        Scanner sc =  new Scanner(System.in);
+        System.out.println("Cual es la matricula: ");
+        String matricula = sc.next();
+
+        return matricula;
     }
+
+    /**
+     * Pregunta y almacena el modelo introducido
+     * @return valor del modelo
+     */
+    public static String obtenerModelo(){
+        Scanner sc =  new Scanner(System.in);
+        System.out.println("Cual es su modelo: ");
+        String modelo = sc.next();
+
+        return modelo;
+    }
+
+
 }
