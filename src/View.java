@@ -15,6 +15,9 @@ public class View {
             System.out.println("\nMenú:");
             System.out.println("1. Ingresar datos del coche");
             System.out.println("2. Cambiar velocidad");
+            System.out.println("3. Aumentar velocidad");
+            System.out.println("4. Reducir velocidad");
+            System.out.println("5. Mostrar coche");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
 
@@ -22,9 +25,15 @@ public class View {
 
             // Procesar opción
             if (op == 1) {
-                System.out.println("Los datos del coche son los siguientes: " + Controller.crearCoche(obtenerModelo(), obtenerMatricula()));
+                crearCoche();
             } else if (op == 2) {
-                System.out.println("La nueva velocidad es: "+ Controller.cambiarVelocidad(obtenerMatricula(),obtenerVelocidad()));
+                cambiarVelocidad();
+            }else if(op == 3){
+                subirVelocidad();
+            } else if (op == 4) {
+                bajarVelocidad();
+            } else if (op == 5) {
+                mostrarCoche();
             } else if (op == 0) {
                 System.out.println("Cerrando el programa...");
             } else {
@@ -62,7 +71,7 @@ public class View {
 
     /**
      * Pregunta y almacena el modelo introducido
-     * @return valor  de la velocidad
+     * @return valor de la velocidad
      */
     public static int obtenerVelocidad(){
         Scanner sc =  new Scanner(System.in);
@@ -72,5 +81,38 @@ public class View {
         return velocidad;
     }
 
+    /**
+     * Crea el coche
+     * @return un texto y los datos del coche creado
+     */
+    public static void crearCoche(){
+        System.out.println(Controller.crearCoche(obtenerModelo(),obtenerMatricula()));
+    }
+
+    /**
+     * Cambia la velocidad del coche y la muestra
+     */
+    public static void cambiarVelocidad(){
+        System.out.println("Velocidad: "+Controller.cambiarVelocidad(obtenerMatricula(),obtenerVelocidad()));
+
+    }
+
+    /**
+     * Aumenta la velocidad del coche
+     */
+    public static void subirVelocidad(){
+        System.out.println("Nueva Velocidad aumentada: "+ Controller.subirVelocidad(obtenerMatricula()));
+    }
+
+    /**
+     * Reduce la velocidad del coche
+     */
+    public static void bajarVelocidad(){
+        System.out.println("Nueva Velocidad aumentada: "+ Controller.bajarVelocidad(obtenerMatricula()));
+    }
+
+    public static void mostrarCoche(){
+        System.out.println(Controller.mostrarCoches(obtenerMatricula()));
+    }
 
 }

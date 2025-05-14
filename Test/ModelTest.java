@@ -2,6 +2,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test
+ * Verifican el funcionamiento del código del programa
+ */
 class ModelTest {
 
     @Test
@@ -31,6 +35,18 @@ class ModelTest {
 
         assertEquals(1,coche.velocidad);
         assertNotEquals(0 , coche.velocidad);
+    }
+
+    @Test
+    @DisplayName("Subir Velocidad")
+    public void subirVelocidad(){
+        Coche coche = Model.crearCoche("Modelo1","1234ANC");
+        int velocidad = Model.cambiarVelocidad(coche.matricula, 1);
+        int velocidadCambiada = Model.subirVelocidad(coche.matricula);
+
+        assertEquals(11,coche.velocidad);
+        assertNotEquals(12,coche.velocidad);
+        assertNotEquals(1,coche.velocidad);
     }
 
 }

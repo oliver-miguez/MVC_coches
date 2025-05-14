@@ -59,4 +59,39 @@ public class Model {
     public static int getVelocidad(String matricula) {
         return getCoche(matricula).velocidad;
     }
+
+    /**
+     * Permite subir la velocidad
+     * @param matricula del coche que se desea
+     * @return velocidad del coche
+     */
+    public static int subirVelocidad(String matricula) {
+        Coche coche = getCoche(matricula);
+        if (coche != null) {
+            coche.velocidad += 10; // Por ejemplo, aumentamos la velocidad en 10
+            return coche.velocidad;
+        } else {
+            System.out.println("Coche no encontrado");
+            return -1;
+        }
+    }
+
+    /**
+     * Reducir la velocidad del coche
+     * @param matricula del coche
+     * @return velocidad del coche
+     */
+    public static int bajarVelocidad(String matricula) {
+        Coche coche = getCoche(matricula);
+        if (coche != null) {
+            coche.velocidad -= 10; // Por ejemplo, disminuimos la velocidad en 10
+            return coche.velocidad;
+        } else {
+            System.out.println("Coche no encontrado");
+            return -1;
+        }
+    }
+
+
 }
+
