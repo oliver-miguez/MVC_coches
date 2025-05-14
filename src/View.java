@@ -111,6 +111,9 @@ public class View {
         System.out.println("Nueva Velocidad aumentada: "+ Controller.bajarVelocidad(obtenerMatricula()));
     }
 
+    /**
+     * Muestra el coche según la matrícula del parking
+     */
     public static void mostrarCoche(){
         System.out.println(Controller.mostrarCoches(obtenerMatricula()));
     }
