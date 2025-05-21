@@ -1,14 +1,20 @@
 ```mermaid
 sequenceDiagram
-    participant App
-    participant View
-    participant Controller
     participant Model
+    participant Controller
+    participant View
     
-    App ->> View: Algo 
     activate View
-    View -->> App: SI
+    View->>-View:obtenerModelo and obtenerMatricula()
+    View->>Controller:crearCoche
+    activate Controller
+    Controller->>Model:crearCoche(modelo,matricula)
+    activate Model
+    Model-->> Controller:aux
+    deactivate Model
+    Controller-->>View:coche.modelo and coche.matricula
+    deactivate Controller
+    View->>-View:System.out.println(crearCoche())
     deactivate View
-    
- ```
+```
      

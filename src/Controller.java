@@ -55,7 +55,7 @@ public class Controller {
      */
     public static String mostrarCoches(String matricula){
         Coche coche = Model.getCoche(matricula);
-        return " Modelo: "+coche.modelo + " Matricula: "+ coche.matricula + " Velocidad: " +coche.velocidad;
+        return " SModelo: "+coche.modelo + " Matricula: "+ coche.matricula + " Velocidad: " +coche.velocidad;
     }
 
 
