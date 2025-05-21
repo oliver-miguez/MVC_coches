@@ -9,23 +9,23 @@ public class Model {
     /**
      * Crea un coche y lo mete en el parking
      * @param modelo del coche
-     * @param matricula identificador unico
+     * @param matricula identificador único
      * @return el coche creado
      */
-    public Coche crearCoche(String modelo, String matricula){
+    public static Coche crearCoche(String modelo, String matricula){
         Coche aux = new Coche(modelo, matricula);
         parking.add(aux);
         return aux;
     }
 
     /**
-     * Busca coche segun matricula
+     * Busca coche según matrícula
      * @param matricula a buscar
      * @return chche o null si no existe
      */
-    public Coche getCoche(String matricula){
+    public static Coche getCoche(String matricula){
         Coche aux = null;
-        // recorre el array buscando por matricula
+        // recorre el array buscando por matrícula
         for (Coche e: parking) {
             if (e.matricula.equals(matricula)) {
                 aux = e;
@@ -40,19 +40,58 @@ public class Model {
      * @param v nueva velocidad
      * @return velocidad modificada
      */
-    public int cambiarVelocidad(String matricula, Integer v) {
-        // busca el coche
-        getCoche(matricula).velocidad = v;
-        // retorna la nueva velocidad
+    public static int cambiarVelocidad(String matricula, Integer v) {
+        Coche coche = getCoche(matricula);
+        if (coche != null) {
+            coche.velocidad = v;
+            return coche.velocidad;
+        } else {
+            throw new IllegalArgumentException("Coche con matrícula " + matricula + " no encontrado.");
+        }
+    }
+
+
+    /**
+     * Ddevuelve la velocidad según la matrícula
+     * @param matricula
+     * @return
+     */
+    public static int getVelocidad(String matricula) {
         return getCoche(matricula).velocidad;
     }
 
     /**
-     * Ddevuelve la velocidad segun la matricula
-     * @param matricula
-     * @return
+     * Permite subir la velocidad
+     * @param matricula del coche que se desea
+     * @return velocidad del coche
      */
-    public int getVelocidad(String matricula) {
-        return getCoche(matricula).velocidad;
+    public static int subirVelocidad(String matricula) {
+        Coche coche = getCoche(matricula);
+        if (coche != null) {
+            coche.velocidad += 10; // Por ejemplo, aumentamos la velocidad en 10
+            return coche.velocidad;
+        } else {
+            System.out.println("Coche no encontrado");
+            return -1;
+        }
     }
+
+    /**
+     * Reducir la velocidad del coche
+     * @param matricula del coche
+     * @return velocidad del coche
+     */
+    public static int bajarVelocidad(String matricula) {
+        Coche coche = getCoche(matricula);
+        if (coche != null) {
+            coche.velocidad -= 10; // Por ejemplo, disminuimos la velocidad en 10
+            return coche.velocidad;
+        } else {
+            System.out.println("Coche no encontrado");
+            return -1;
+        }
+    }
+
+
 }
+

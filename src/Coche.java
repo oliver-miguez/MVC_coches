@@ -1,3 +1,6 @@
+/**
+ * Clase que proporciona los datos para la construcción del programa
+ */
 public class Coche {
     String matricula;
     String modelo;

@@ -1,27 +1,62 @@
 import java.lang.module.ModuleDescriptor;
 
+/**
+ * Clase que controla en funcionamiento del programa
+ */
 public class Controller {
-    public static void main(String[] args) {
-        // Instanciamos la vista y el modelo
-        View miView = new View();
-        Model miModel = new Model();
+    /**
+     * Crea el coche
+     * @return Valor de la matrícula del coche
+     */
+    public static String crearCoche(String modelo, String matricula) {
+        Coche coche = Model.crearCoche(modelo,matricula); //crea un coche
 
-        // Crear tres coches
-        miModel.crearCoche("LaFerrari", "SBC 1234");
-        miModel.crearCoche("Alpine", "HYU 4567");
-        miModel.crearCoche("Aston Martin", "FGH 3333");
+        return coche.modelo + " " + coche.matricula;
 
-        Coche ferrari = miModel.getCoche("SBC 1234");
-        // modifica la velocidad
-        int nuevaVelocidad = miModel.cambiarVelocidad("SBC 1234", 30);
-
-        // recoje la velocidad y la muestra (tarea de la View)
-        boolean hecho = miView.muestraVelocidad("SBC 1234", miModel.getVelocidad("SBC 1234"));
-
-        if (hecho) {
-            System.out.println("Correcto");
-        } else {
-            System.out.println("Error");
-        } ;
     }
+
+    /**
+     * Cambiar velocidad
+     * @param matricula del coche creado
+     * @param velocidad del coche creado
+     * @return el valor de la velocidad que introducimos
+     */
+    public static int cambiarVelocidad(String matricula, int velocidad){
+        int cocheVel = Model.cambiarVelocidad(matricula,velocidad);
+        return cocheVel;
+    }
+
+    /**
+     * Aumenta en 10 la velocidad del vehiculo
+     * @param matricula del coche seleccionado
+     * @return la nueva velocidad
+     */
+    public static int subirVelocidad(String matricula){
+        int aumentarVel = Model.subirVelocidad(matricula);
+        return aumentarVel;
+
+    }
+
+    /**
+     * Reduce en 10 la velocidad del vehiculo
+     * @param matricula del coche seleccionado
+     * @return la nueva velocidad
+     */
+    public static int bajarVelocidad(String matricula){
+        int reducirVel = Model.bajarVelocidad(matricula);
+        return reducirVel;
+
+    }
+
+    /**
+     * Devuelve el coche deseado según la matrícula
+     * @param matricula del coche que buscamos
+     * @return los datos del coche
+     */
+    public static String mostrarCoches(String matricula){
+        Coche coche = Model.getCoche(matricula);
+        return " SModelo: "+coche.modelo + " Matricula: "+ coche.matricula + " Velocidad: " +coche.velocidad;
+    }
+
+
 }
