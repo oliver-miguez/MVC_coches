@@ -14,7 +14,20 @@ sequenceDiagram
     deactivate Model
     Controller-->>View:coche.modelo and coche.matricula
     deactivate Controller
-    View->>View:System.out.println(crearCoche())
+    View->>View:System.out.println(crearCoche)
     deactivate View
+    activate View
+    View->>View:obtenerVelocidad and obtenerMatricula()
+    View->>Controller:CamiarVelociad
+    activate Controller
+    Controller->>Model:cambiarVelocidad(velocidad,matricula)
+    activate Model
+    Model-->> Controller:coche.velocidad
+    deactivate Model
+    Controller-->>View:cocheVel
+    deactivate Controller
+    View->>View:System.out.println(cocheVel)
+    deactivate View
+    
 ```
      
